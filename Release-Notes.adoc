@@ -26,7 +26,7 @@ The Administration Guide can be found here: https://susedoc.github.io/doc-caasp/
 
 SUSE CaaS Platform is based on MicroOS, which is a special flavor of SUSE Linux Enterprise Server.
 
-* SUSE CaaS Platform 3 was based on SLE 12 SP3, while version 4 is based on SLE 15.
+* SUSE CaaS Platform 3 was based on SLE 12 SP3, while version 4.0 is based on SLE 15.
 
 === NTP Client Configuration
 
@@ -39,9 +39,9 @@ NTP Clients no longer configured automatically on the nodes, user must configure
 
 == Changes to the Kubernetes stack
 
-* Updated Kubernetes version: Version 3 shipped 1.10 via the updates channel. Version 4 ships with Kubernetes 1.13
+* Updated Kubernetes version: Version 3 shipped 1.10 via the updates channel. Version 4.0 ships with Kubernetes 1.13
 * Container images are distributed using the SUSE container registry instead of being wrapped into RPM packages. This is reducing the size of our installation medias and the amount of disk space required on the nodes of the cluster. Although this doesn't immediately affect the update process, it will also facilitate updates in the future by making reboots obsolete when a container image changes.
-* Tech preview: Cilium SDN. Cilium is allowing CaaS Platform users to take advantage of Kubernetes Network Policies. Flannel is still fully supported as part of version 4.
+* Tech preview: Cilium SDN. Cilium is allowing CaaS Platform users to take advantage of Kubernetes Network Policies. Flannel is still fully supported as part of version 4.0.
 ** https://susedoc.github.io/doc-caasp/beta1/v4/caasp-deployment/single-html/#deployment.appendix.cilium
 ** Advantages of Cilium over flannel:
 +
@@ -57,7 +57,7 @@ NTP Clients no longer configured automatically on the nodes, user must configure
 ** Solution:
 +
 The user must either assign static IP addresses for the nodes or do a hard coded mapping of addresses in the DHCP server
-* No mirror configuration for Airgap for version 4 (https://bugzilla.suse.com/show_bug.cgi?id=1125018)
+* No mirror configuration for Airgap for version 4.0 (https://bugzilla.suse.com/show_bug.cgi?id=1125018)
 * Velum fails to create new user (https://bugzilla.suse.com/show_bug.cgi?id=1121064).
 ** Solution: This can happen because of slow connection with registry.suse.com and so it takes more time than expected to pull down the images.
 +
