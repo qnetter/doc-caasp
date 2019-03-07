@@ -1,4 +1,4 @@
-= SUSE CaaS Platform v4 - Beta1 Release Notes
+= Beta1 Release Notes: SUSE CaaS Platform v4
 
 WARNING: "This is a BETA release and NOT intended for production usage."
 
@@ -43,7 +43,7 @@ NTP Clients no longer configured automatically on the nodes, user must configure
 == Known bugs
 
 * Underlying SLE15 system breaks cluster with dynamic IPs, cluster nodes must have static IP (https://bugzilla.suse.com/show_bug.cgi?id=1121797)
-** Solution: 
+** Solution:
 +
 The user must either assign static IP addresses for the nodes or do a hard coded mapping of addresses in the DHCP server
 * No mirror configuration for Airgap for v4 (https://bugzilla.suse.com/show_bug.cgi?id=1125018)
@@ -57,6 +57,6 @@ When this happens, a workaround is to try again, so the second time the image ha
 * Update fails after master node reboot (https://bugzilla.suse.com/show_bug.cgi?id=1125444)
 * Root filesystem is not read-only after first boot (https://bugzilla.suse.com/show_bug.cgi?id=1123820)
 * Autoyast profile still enables admin's NTP server for nodes (https://bugzilla.suse.com/show_bug.cgi?id=1127362)
-** Solution: 
+** Solution:
 +
 Download the autoyast profile from velum, and change the ntp configuration (see "NTP Client Configuration" above).
