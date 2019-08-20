@@ -73,11 +73,7 @@ Substitute `CAASP_REGISTRATION_CODE` for the code from <<registration_code>>.
 # - register against local SUSE Repository Mirroring Server
 
 # SUSE CaaSP Product Registration Code
-<<<<<<< HEAD
-caasp_registry_code = "REGISTRATION_CODE"
-=======
 caasp_registry_code = "CAASP_REGISTRATION_CODE"
->>>>>>> master
 
 # SUSE Repository Mirroring Server Name (FQDN)
 #rmt_server_name = "rmt.example.com"

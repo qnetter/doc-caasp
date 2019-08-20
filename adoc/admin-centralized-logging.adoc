@@ -8,7 +8,7 @@ Collecting logs in a central location can serve for audit or debug purposes or t
 
 == Types of logs
 
-You can log the following groups of services. See the <<Deployment>>
+You can log the following groups of services. See the <<_centralized-logging-deployment>>
 for more information on how to select and customize the logs.
 
 Kubernetes System Components::
@@ -87,6 +87,7 @@ Note: When Helm is included in v4, Tiller server will be automatically installed
 So we probably  just need to mention that we use it and that it's installed automatically.
 ////
 
+[[_centralized-logging-deployment]]
 == Deployment
 
 After you have successfully installed it,
@@ -100,7 +101,7 @@ are:
 * `*server.port*`, default value = 514
 * `*server.protocol*`, default value = TCP
 
-See <<Optional settings>> for the facultative parameters and their default values.
+See <<_centralized-logging-optional-settings>> for the facultative parameters and their default values.
 
 - Running the following will create the minimal working setup:
 
@@ -159,7 +160,7 @@ This setting effects the Kubernetes cluster logs (`kubernetes-control-plane` and
 This option sets the maximum size allowed for disk storage (in bytes).
 The storage is divided so that 20 percent of it is for journal logs and 80 percent for the remaining logs.
 
-
+[[_centralized-logging-optional-settings]]
 == Optional settings
 
 [NOTE]
