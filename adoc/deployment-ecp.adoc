@@ -28,7 +28,7 @@ The SUSE SLES15-SP1 images for {soc} come with pre-defined user `sles`, which yo
 
 === Deploying the cluster nodes
 
-. Find the {tf} template files for {soc} in `/usr/share/caasp/terraform/openstack`.
+. Find the {tf} template files for {soc} in `/usr/share/caasp/terraform/openstack` (which was installed as part of the management pattern (`sudo zypper in -t pattern SUSE-CaaSP-Management`)).
 Copy this folder to a location of your choice as the files need adjustment.
 +
 ----
@@ -65,7 +65,7 @@ You can set the timezone before deploying the nodes by modifying the following f
 +
 . Register your nodes by using the SUSE CaaSP Registration Code or by registering nodes against local SUSE Repository Mirroring Server in `~/my-cluster/registration.auto.tfvars`:
 +
-Substitute `REGISTRATION_CODE` for the code from <<registration_code>>.
+Substitute `CAASP_REGISTRATION_CODE` for the code from <<registration_code>>.
 +
 ----
 ## To register CaaSP product please use one of the following method
@@ -73,7 +73,11 @@ Substitute `REGISTRATION_CODE` for the code from <<registration_code>>.
 # - register against local SUSE Repository Mirroring Server
 
 # SUSE CaaSP Product Registration Code
+<<<<<<< HEAD
 caasp_registry_code = "REGISTRATION_CODE"
+=======
+caasp_registry_code = "CAASP_REGISTRATION_CODE"
+>>>>>>> master
 
 # SUSE Repository Mirroring Server Name (FQDN)
 #rmt_server_name = "rmt.example.com"

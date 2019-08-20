@@ -9,7 +9,7 @@ and defining which of the nodes are masters and which workers. For maximum autom
 
 ==== Install `skuba`
 
-First you need to install `skuba` on your local workstation:
+First you need to install `skuba` on a management machine, like your local workstation:
 
 . Add the SLE15 SP1 extension containing `skuba`. This also requires the "containers" module.
 +
@@ -17,46 +17,50 @@ First you need to install `skuba` on your local workstation:
 SUSEConnect -p sle-module-containers/15.1/x86_64
 SUSEConnect -p caasp/4.0/x86_64 -r <Registration Code>
 ----
-. Install `skuba`:
+. Install the management pattern with:
 +
 ----
-sudo zypper in skuba
+zypper in -t pattern SUSE-CaaSP-Management
 ----
-
-=== Cluster Deployment
-
-Make sure you have added the SSH identity (corresponding to the SSH key distributed above) to the ssh-agent on your workstation.
-This is a requirement for `skuba` (https://github.com/SUSE/skuba#prerequisites).
 
 [TIP]
 ====
-The `ssh-agent` process is usually started automatically by most UNIX
-environments. If that's not the case, invoke the `ssh-agent` command
-and follow the guidance given by the tool's output.
+Example deployment configuration files for each deployment scenario are installed
+under `/usr/share/caasp/terraform/`, or in case of the Bare metal deployment:
+`/usr/share/caasp/autoyast/`.
+====
 
-You can load as many keys as you want into your agent using the
-`ssh-add <path to key>` command. Keys can also be password protected.
+=== Cluster Deployment
 
-You can list all the identities loaded into the agent by using the
-`ssh-add -L` command.
+Make sure you have added the SSH identity (corresponding to the public SSH key distributed above)
+to the ssh-agent on your workstation. For instructions on how to add the SSH identity,
+refer to <<ssh.configuration>>.
+This is a requirement for `skuba` (https://github.com/SUSE/skuba#prerequisites).
 
-`skuba` will try all the identities loaded into the ssh-agent until one of
-them grants access to the node.
 
-It is also possible to forward the authentication agent connection from a
-host to another one. This can be useful if you intend to run `skuba` on
-a "jump host" and don't want to copy your private key to this node.
+By default `skuba` connects to the nodes as `root` user. A different user can
+be specified by the following flags:
 
-This can be achieved using the `ssh -A` command. Please refer to the man page
-of ssh to learn about the security implications of using this feature.
+----
+--sudo --user <username>
+----
+
+[IMPORTANT]
+====
+You must configure `sudo` for the user to be able authenticate without password.
+Replace `USERNAME` with the user you created during installation. As root, run:
+
+----
+echo "USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+----
 ====
 
 ==== Initializing the Cluster
 
-. Now you can initialize the cluster on the deployed machines.
+Now you can initialize the cluster on the deployed machines.
 As `--control-plane` enter the IP/FQDN of your load balancer.
 If you do not use a load balancer use your first master node.
-+
+
 ----
 skuba cluster init --control-plane <LB IP/FQDN> my-cluster
 ----
@@ -255,7 +259,7 @@ spec:
 
 You can add any key/value labels to this selector:
 ----
---blocking-pod-selector=<LABEL KEY 1>=<LABLE VALUE 1>,<LABEL KEY 2>=<LABEL VALUE 2>
+--blocking-pod-selector=<LABEL KEY 1>=<LABEL VALUE 1>,<LABEL KEY 2>=<LABEL VALUE 2>
 ----
 
 Alternatively you can adapt the `kured` DaemonSet also later during runtime (after bootstrap) by editing `my-cluster/addons/kured/kured.yaml` and executing:

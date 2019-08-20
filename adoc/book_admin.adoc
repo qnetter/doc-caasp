@@ -39,9 +39,13 @@ include::admin-cluster-management.adoc[Cluster management,leveloffset=+1]
 
 == Security
 
-include::admin-security-ldap.adoc[External LDAP, leveloffset=+2]
+include::admin-security-role-management.adoc[leveloffset=+2]
+
+include::admin-security-user-group-management.adoc[Group Management, leveloffset=+2]
 
 include::admin-security-rbac.adoc[Role Based Access Control (RBAC),leveloffset=+2]
+
+include::admin-security-ldap.adoc[External LDAP, leveloffset=+2]
 
 include::admin-security-psp.adoc[Pod Security Policies,leveloffset=+2]
 
@@ -53,6 +57,13 @@ include::admin-updates.adoc[Cluster Updates,leveloffset=+1]
 
 include::admin-centralized-logging.adoc[leveloffset=+2]
 
+// {ses} Integration
+
+include::admin-ses-integration.adoc[SES Integration, leveloffset=+1]
+
+// {cap} Integration
+
+include::admin-cap-integration.adoc[leveloffset=+1]
 
 == Miscellaneous
 

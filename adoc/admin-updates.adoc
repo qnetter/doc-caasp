@@ -14,6 +14,14 @@ To safely update from skuba version 0.7.1 to 0.8.1, SSH to each of the nodes and
 sudo zypper in -y patterns-caasp-Node-1.15 -patterns-caasp-Node
 ----
 
+<<<<<<< HEAD
+=======
+[IMPORTANT]
+====
+This step does not cause any service interruption and can be run simultaneously on several nodes.
+====
+
+>>>>>>> master
 ==== An overview
 
 In order to get an overview of the updates available, you can run:
@@ -92,7 +100,7 @@ Component versions in master0
 ----
 
 It may happen that the {kube} version on the control plane is too outdated
-for the update to progress. 
+for the update to progress.
 In this case, you would get output similar to the following:
 
 ----

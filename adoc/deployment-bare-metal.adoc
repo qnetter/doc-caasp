@@ -25,9 +25,16 @@ you must adjust the {ay} file to your needs according to the requirements.
 Refer to the official {ay} documentation for more information: link:https://www.suse.com/documentation/sles-15/singlehtml/book_autoyast/book_autoyast.html[{ay} Guide].
 ====
 
+==== Hardware Prerequisites
+
+Deployment with {ay} will require a minimum *disk size of 40GB*.
+10GB out of that total space will be reserved for container images without any workloads,
+for the root partition (30GB) and the EFI system partition (200MB).
+
 === {ay} preparation
 
-. Obtain example {ay} file from `/usr/share/caasp/autoyast/bare-metal/autoyast.xml`
+. On the management machine, get an example {ay} file from `/usr/share/caasp/autoyast/bare-metal/autoyast.xml`,
+(which was installed as part of the management pattern (`sudo zypper in -t pattern SUSE-CaaSP-Management`) earlier on).
 . Copy the file to a suitable location to modify it. Name the file `autoyast.xml`.
 . Modify the following places in the {ay} (and any additional places that are required by your specific configuration/environment).
 .. `<ntp-client>`
